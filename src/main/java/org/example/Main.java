@@ -1,7 +1,9 @@
 package org.example;
 
+import org.example.models.Pokemon;
 import org.example.services.PokemonService;
 
+import java.util.List;
 import java.util.Scanner;
 
 
@@ -12,11 +14,29 @@ public class Main {
 
     public static void main(String[] args) {
 
-        System.out.println("Welcome Pokemon Trainer!");
-        System.out.println("1. Get first 20");
-        System.out.println("2. Get second 20");
-        System.out.println("3. Get next 20");
+        do {
+            System.out.println("Welcome Pokemon Trainer!");
+            System.out.println("1. Get first 20");
+            System.out.println("2. Get second 20");
+            System.out.println("3. Get next 20");
+            System.out.println("4. Quit");
+            System.out.println("Enter choice: ");
+            int choice = Integer.parseInt(input.nextLine() );
 
+            if(choice ==4){
+                break;
+            }
+            switch (choice) {
+                case 1:
+                    List<Pokemon> pokemon = service.getPokemon();
+                    System.out.println(pokemon);
+                    break;
+                case 2:
+                    break;
+                case 3 :
+                    break;
+            }
+        } while (true);
 
     }
 }
