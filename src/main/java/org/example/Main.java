@@ -1,6 +1,7 @@
 package org.example;
 
 import org.example.models.Pokemon;
+import org.example.models.PokemonDetail;
 import org.example.services.PokemonService;
 
 import java.util.ArrayList;
@@ -42,7 +43,24 @@ public class Main {
                     System.out.println(pokemon);
                     break;
             }
+
+            getPokemonDetail(pokemon);
+
         } while (true);
 
     }
+
+    private static void getPokemonDetail(List<Pokemon> pokemons){
+        System.out.println("Choose pokemon: ");
+        for(Pokemon p : pokemons){
+            System.out.println(p.getId() + " " + p.getName() );
+        }
+
+        System.out.println("Enter choice: ");
+        int id = Integer.parseInt(input.nextLine() );
+        PokemonDetail detail = service.getPokemonDetailById(id);
+        System.out.println(detail);
+    }
+
+
 }

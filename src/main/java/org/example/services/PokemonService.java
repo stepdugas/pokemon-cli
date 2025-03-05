@@ -1,5 +1,6 @@
 package org.example.services;
 import org.example.models.Pokemon;
+import org.example.models.PokemonDetail;
 import org.example.models.Results;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.util.*;
@@ -28,6 +29,12 @@ public class PokemonService {
             item.setId(id);
         }
         return list;
+    }
+
+    public PokemonDetail getPokemonDetailById(int id) {
+        PokemonDetail pokemonDetail = restTemplate.getForObject(API_URL + "/" + id, PokemonDetail.class);
+
+        return pokemonDetail;
     }
 
 
