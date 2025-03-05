@@ -3,6 +3,7 @@ package org.example;
 import org.example.models.Pokemon;
 import org.example.services.PokemonService;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -13,6 +14,7 @@ public class Main {
     private static Scanner input = new Scanner(System.in);
 
     public static void main(String[] args) {
+        List<Pokemon> pokemon = new ArrayList<>();
 
         do {
             System.out.println("Welcome Pokemon Trainer!");
@@ -28,12 +30,16 @@ public class Main {
             }
             switch (choice) {
                 case 1:
-                    List<Pokemon> pokemon = service.getPokemon();
+                    pokemon = service.getMorePokemon(0);
                     System.out.println(pokemon);
                     break;
                 case 2:
+                    pokemon = service.getMorePokemon(20);
+                    System.out.println(pokemon);
                     break;
                 case 3 :
+                    pokemon = service.getMorePokemon(40);
+                    System.out.println(pokemon);
                     break;
             }
         } while (true);

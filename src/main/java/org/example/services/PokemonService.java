@@ -23,9 +23,11 @@ public class PokemonService {
             int pokemonIndex = url.indexOf("pokemon");
             String pokemonString = url.substring(pokemonIndex);
             int slashIndex = pokemonString.indexOf("/");
-
+            String number = pokemonString.substring(slashIndex + 1, pokemonString.length()-1);
+            int id = Integer.parseInt(number);
+            item.setId(id);
         }
-        return rs.getResults();
+        return list;
     }
 
 
